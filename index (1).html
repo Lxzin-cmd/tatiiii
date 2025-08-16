@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Do you love me?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="question-container container">
+        <video class="Local-gif" src="Reply me love.mp4" loop autoplay muted></video>
+        <h2 class="question">Jhonn me desbloqueia? </h2>
+        <div class="essload-main">
+            <div class="essload-heart">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="essload-shadow"></div>
+        </div>
+        <div class="button-container">
+            <button class="yes-btn btn js-yes-btn">Yes 😊</button>
+            <button class="no-btn btn js-no-btn">No 😢</button>
+        </div>
+    </div>
+    <div class="result-container container">
+        <video class="gif-result" src="Love me.mp4" autoplay loop muted></video>
+        <h2>I know it 😍!</h2>
+    </div>
+    <div class="love-message" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:2000; background:#fff; border-radius:16px; box-shadow:0 4px 24px rgba(0,0,0,0.15); padding:40px 32px; text-align:center;">
+        <img src="https://em-content.zobj.net/source/microsoft-teams/363/red-heart_2764-fe0f.png" alt="Coração" style="width:80px; height:80px; display:block; margin:0 auto 16px auto;">
+        <h2 style="color:#e75480; font-size:2rem;">Obrigado amigo ❤️</h2>
+    </div>
+    <script>
+        const noBtn = document.querySelector('.no-btn');
+        const yesBtn = document.querySelector('.yes-btn');
+        const loveMsg = document.querySelector('.love-message');
+
+        noBtn.addEventListener('mouseenter', (e) => {
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            // Limita para não sair da tela
+            const maxLeft = windowWidth - btnWidth;
+            const maxTop = windowHeight - btnHeight;
+
+            const randomLeft = Math.random() * maxLeft;
+            const randomTop = Math.random() * maxTop;
+
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = `${randomLeft}px`;
+            noBtn.style.top = `${randomTop}px`;
+            noBtn.style.zIndex = 1000;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            loveMsg.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
